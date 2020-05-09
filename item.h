@@ -1,8 +1,6 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-#endif // ITEM_H
-
 #include <string>
 
 using namespace std;
@@ -72,12 +70,13 @@ class Item
 public:
     Item();
 
+    void setID( int id );
     int getID();
 
-    void setNombre(string n);
+    void setNombre( string n );
     string getNombre();
 
-    void setPersistente(bool valor);
+    void setPersistente( bool valor );
     bool esPersistente();
 
 };
