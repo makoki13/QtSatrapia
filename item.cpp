@@ -19,6 +19,16 @@ int Item::getID()
     return _id;
 }
 
+void Item::setTipo(TipoItem tipo)
+{
+    _tipo = tipo;
+}
+
+TipoItem Item::getTipo()
+{
+    return _tipo;
+}
+
 void Item::setNombre(string n)
 {
     _nombre = n;

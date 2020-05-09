@@ -11,6 +11,31 @@ enum TipoItem {
     RECURSO, ALMACEN, EXTRACTOR, FUENTE, EJERCITO, INVESTIGACION, VIAJE, OPERACION
 };
 
+class Item
+{
+protected:
+    int _id;
+    TipoItem _tipo;
+    string _nombre;
+    bool _persistente;
+
+public:
+    Item();
+
+    void setID( int id );
+    int getID();
+
+    void setTipo( TipoItem tipo);
+    TipoItem getTipo();
+
+    void setNombre( string n );
+    string getNombre();
+
+    void setPersistente( bool valor );
+    bool esPersistente();
+
+};
+
 enum SubtipoItem_CIVILIZACION {
     TRIBU, SATRAPIA, IMPERIO
 };
@@ -57,28 +82,6 @@ enum SubtipoItem_OPERACION {
 
 enum SubtipoItem_ESPIA {
     LEAL, TRAIDOR
-};
-
-
-class Item
-{
-    int _id;
-    TipoItem _tipo;
-    string _nombre;
-    bool _persistente;
-
-public:
-    Item();
-
-    void setID( int id );
-    int getID();
-
-    void setNombre( string n );
-    string getNombre();
-
-    void setPersistente( bool valor );
-    bool esPersistente();
-
 };
 
 #endif // ITEM_H
