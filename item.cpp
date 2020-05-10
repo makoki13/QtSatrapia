@@ -1,8 +1,32 @@
+#include <iostream>
+
 #include "item.h"
+
+#ifndef GLOBAL_SIGUIENTE
+#define GLOBAL_SIGUIENTE
+int Item::siguiente_id = -1;
+#endif
+
+void Item::inicializa()
+{
+    //Pendiente de persistencia
+    siguiente_id = 1;
+}
 
 Item::Item()
 {
-    _id = 0;
+    _id = siguiente_id;
+    siguiente_id++;
+
+    _nombre = "nombre""";
+    _tipo = SIN_DEFINIR;
+    _persistente = false;
+}
+
+Item::Item(int id)
+{
+    _id = id;
+
     _nombre = "nombre""";
     _tipo = SIN_DEFINIR;
     _persistente = false;
@@ -15,7 +39,7 @@ void Item::setID(int id)
 
 int Item::getID()
 {
-    if (_id == 0) return -1;
+    if (_id == -1) return -1;
     return _id;
 }
 

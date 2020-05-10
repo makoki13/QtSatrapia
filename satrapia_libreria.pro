@@ -6,8 +6,10 @@ CONFIG -= qt
 SOURCES += \
         item.cpp \
         main.cpp \
+        superv_usuario.cpp \
         usuario.cpp
 
 HEADERS += \
     item.h \
+    superv_usuario.h \
     usuario.h

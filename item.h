@@ -13,6 +13,7 @@ enum TipoItem {
 
 class Item
 {
+    static int siguiente_id;
 protected:
     int _id;
     TipoItem _tipo;
@@ -20,7 +21,10 @@ protected:
     bool _persistente;
 
 public:
+    static void inicializa();
+
     Item();
+    Item(int id);
 
     void setID( int id );
     int getID();
@@ -33,7 +37,6 @@ public:
 
     void setPersistente( bool valor );
     bool esPersistente();
-
 };
 
 enum SubtipoItem_CIVILIZACION {
