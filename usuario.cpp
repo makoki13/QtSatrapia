@@ -70,3 +70,8 @@ string Usuario::get_clave()
     return _clave_acceso;
 }
 
+void Usuario::set_clave(string clave)
+{
+    _clave_acceso = clave;
+}
+
