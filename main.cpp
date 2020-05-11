@@ -16,6 +16,7 @@ int main()
 //    cout << "u1 " <<  u1.getID() << endl;
 //    cout << "u2 " <<  u2.getID() << endl;
 
+    //Pa na
     SGBD s;
 
     return 0;
