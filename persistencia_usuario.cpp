@@ -10,23 +10,24 @@ Persistencia_Usuario::Persistencia_Usuario()
 
 }
 
-TReturn_Usuario Persistencia_Usuario::existe_usuario(int id)
+TReturn_Usuario Persistencia_Usuario::existe_usuario(QString nombre, QString clave)
 {
     TReturn_Usuario t;
 
-    QString sql = "SELECT Nombre,Clave,Ultimo_Acceso,En_Linea FROM usuario WHERE id=?";
+    QString sql = "SELECT ID,Ultimo_Acceso,En_Linea,Estado FROM usuario WHERE Nombre=:nombre AND Clave=:clave";
     QSqlQuery query;
 
     query.prepare(sql);
-    QVariant qvariant( id );
-    query.addBindValue(qvariant);
+    query.bindValue(":nombre", nombre );
+    query.bindValue(":clave", clave );
 
     TRetorno_Consulta datos = SGBD::consulta(query);
     if (datos.filas == 1) {
-        if (t.resultado > 0) {
-            //datos.data.first().value(0).String
-            t.registro.setNombre(datos.data.first().value(0).toString());
-        }
+        t.registro.setID(datos.data.first().value(0).UInt);
+        t.registro.setNombre(nombre);
+        t.registro.set_clave(clave);
+        t.registro.set_online();
+        t.registro.set_estado(SIN_TUTORIAL);
         t.mensaje = "ok";
     }
     else {

@@ -19,7 +19,7 @@ class Persistencia_Usuario
 public:
     Persistencia_Usuario();
 
-    static TReturn_Usuario existe_usuario(int id);
+    static TReturn_Usuario existe_usuario(QString nombre, QString clave);
     static TReturn_Usuario crea_usuario(int id, QString nombre, QString clave);
 };
 
