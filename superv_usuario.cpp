@@ -43,7 +43,6 @@ Usuario SUPERV_Usuario::carga_usuario(
     return u;
 }
 
-//** TODO
 bool SUPERV_Usuario::quita_usuario(int id) {
     SUPERV_Usuario::usuarios.erase(id);
 
