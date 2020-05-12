@@ -1,7 +1,7 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-#include <string>
+#include <QString>
 
 using namespace std;
 
@@ -17,7 +17,7 @@ class Item
 protected:
     int _id;
     TipoItem _tipo;
-    string _nombre;
+    QString _nombre;
     bool _persistente;
 
 public:
@@ -32,8 +32,8 @@ public:
     void setTipo( TipoItem tipo);
     TipoItem getTipo();
 
-    void setNombre( string n );
-    string getNombre();
+    void setNombre( QString n );
+    QString getNombre();
 
     void setPersistente( bool valor );
     bool esPersistente();

@@ -8,10 +8,10 @@ Usuario::Usuario()
 
 Usuario::Usuario(
         int id,
-        string nombre,
+        QString nombre,
         TipoItem tipo,
-        string correo_electronico,
-        string clave_acceso,
+        QString correo_electronico,
+        QString clave_acceso,
         int ultimo_acceso,
         bool en_linea,
         TipoEstados tipo_estado) : Item(id)
@@ -28,8 +28,8 @@ Usuario::Usuario(
 }
 
 int Usuario::crear_usuario(
-        string correo_electronico,
-        string clave_acceso)
+        QString correo_electronico,
+        QString clave_acceso)
 {
     setNombre( correo_electronico );
     setTipo( USUARIO );
@@ -65,12 +65,12 @@ void Usuario::set_offline()
     _en_linea = false;
 }
 
-string Usuario::get_clave()
+QString Usuario::get_clave()
 {
     return _clave_acceso;
 }
 
-void Usuario::set_clave(string clave)
+void Usuario::set_clave(QString clave)
 {
     _clave_acceso = clave;
 }

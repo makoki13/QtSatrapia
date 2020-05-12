@@ -12,15 +12,15 @@ class SUPERV_Usuario
 public:
     SUPERV_Usuario();
 
-    static bool existe_usuario(string correo, string clave);
+    static bool existe_usuario(QString correo, QString clave);
 
     static Usuario crea_usuario(
-            string correo,
-            string clave
+            QString correo,
+            QString clave
             );
 
     static Usuario carga_usuario(
-            string correo
+            QString correo
             );
 
     static bool quita_usuario(int id);

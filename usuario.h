@@ -1,3 +1,5 @@
+#include <QString>
+
 #include "item.h"
 
 #ifndef USUARIO_H
@@ -9,8 +11,8 @@ enum TipoEstados {
 
 class Usuario : public Item
 {
-    string _correo_electronico;
-    string _clave_acceso;
+    QString _correo_electronico;
+    QString _clave_acceso;
     int _ultimo_acceso;
     bool _en_linea;
     TipoEstados _tipo;
@@ -20,18 +22,18 @@ public:
 
     Usuario (
             int id,
-            string nombre,
+            QString nombre,
             TipoItem tipo,
-            string correo_electronico,
-            string clave_acceso,
+            QString correo_electronico,
+            QString clave_acceso,
             int ultimo_acceso,
             bool en_linea,
             TipoEstados tipo_estado
             );
 
     int crear_usuario (
-            string correo_electronico,
-            string clave_acceso
+            QString correo_electronico,
+            QString clave_acceso
             );
 
     int borrar_usuario();
@@ -41,8 +43,8 @@ public:
     void set_online();
     void set_offline();
 
-    string get_clave();
-    void set_clave(string clave);
+    QString get_clave();
+    void set_clave(QString clave);
 
 };
 

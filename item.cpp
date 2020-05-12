@@ -53,12 +53,12 @@ TipoItem Item::getTipo()
     return _tipo;
 }
 
-void Item::setNombre(string n)
+void Item::setNombre(QString n)
 {
     _nombre = n;
 }
 
-string Item::getNombre()
+QString Item::getNombre()
 {
     if (_nombre == "") return "";
     return _nombre;

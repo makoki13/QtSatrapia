@@ -7,7 +7,7 @@ SUPERV_Usuario::SUPERV_Usuario()
 
 }
 
-bool SUPERV_Usuario::existe_usuario(string correo, string clave)
+bool SUPERV_Usuario::existe_usuario(QString correo, QString clave)
 {
     Usuario u;
 
@@ -17,7 +17,7 @@ bool SUPERV_Usuario::existe_usuario(string correo, string clave)
     return true;
 }
 
-Usuario SUPERV_Usuario::crea_usuario(string correo, string clave)
+Usuario SUPERV_Usuario::crea_usuario(QString correo, QString clave)
 {
     Usuario u;
 
@@ -32,7 +32,7 @@ void SUPERV_Usuario::add_item( Usuario u) {
 }
 
 Usuario SUPERV_Usuario::carga_usuario(
-        string correo
+        QString correo
         ) {
     Usuario u;
 
