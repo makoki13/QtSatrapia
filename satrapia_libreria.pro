@@ -7,6 +7,7 @@ QT += sql
 SOURCES += \
         item.cpp \
         main.cpp \
+        partida.cpp \
         persistencia_item.cpp \
         persistencia_usuario.cpp \
         sgbd.cpp \
@@ -15,6 +16,7 @@ SOURCES += \
 
 HEADERS += \
     item.h \
+    partida.h \
     persistencia_item.h \
     persistencia_usuario.h \
     sgbd.h \
