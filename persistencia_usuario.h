@@ -21,6 +21,8 @@ public:
 
     static TReturn_Usuario existe_usuario(QString nombre, QString clave);
     static TReturn_Usuario crea_usuario(int id, QString nombre, QString clave);
+    static TReturn_Usuario carga_usuario(QString nombre);
+    static TReturn_Usuario borra_usuario(int id);
 };
 
 #endif // PERSISTENCIA_USUARIO_H

@@ -24,7 +24,7 @@ SGBD::SGBD()
         cout << "Conexion a [SQLITE] preparada." << endl << endl;
     }
 
-    recrea_tablas();
+    //Solo en modo debug: recrea_tablas();
 }
 
 TRetorno_Ejecuta SGBD::ejecuta(QSqlQuery query)
@@ -60,12 +60,13 @@ TRetorno_Consulta SGBD::consulta(QSqlQuery query)
     else {
         resConsulta.resultado = 0;
         resConsulta.mensaje = "";
-        resConsulta.filas = query.size();
 
         QSqlRecord rec = query.record();
         int numColumnas = rec.count();
 
+        resConsulta.filas = 0;
         while(query.next()) {
+            resConsulta.filas++;
             QList<QVariant> registro;
             for (int i=0; i < numColumnas; i++) {
                 registro.append(query.value(i));

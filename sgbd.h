@@ -1,3 +1,4 @@
+//TODO analizar valores de error
 #ifndef SGBD_H
 #define SGBD_H
 
@@ -11,16 +12,23 @@ using namespace std;
 
 class TRetorno_Ejecuta {
 public:
+    //Vale -1 si hay error. 0 si no lo hay
     int resultado;
+    //Un valor query.lastError() cuando resultado es -1
     QString mensaje;
+    //query.numRowsAffected
     int filas;
 };
 
 class TRetorno_Consulta {
 public:
+    //Vale -1 si hay error. 0 si no lo hay
     int resultado;
+    //Un valor query.lastError() cuando resultado es -1
     QString mensaje;
+    //Numero de filas de la tabla
     int filas;
+    //Tabla de datos
     QList<QList<QVariant>> data;
 };
 

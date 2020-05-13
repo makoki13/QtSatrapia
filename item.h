@@ -21,9 +21,14 @@ protected:
     bool _persistente;
 
 public:
+    //Pone siguiente_id al valor ultimo e incrementa en 1
     static void inicializa();
+    //Devuelve el siguiente_id al valor ultimo
+    static int getSiguienteID();
 
+    //Crea un item vacio con el siguiente ID libre.
     Item();
+    //Crea un item vacio con un ID especifico.
     Item(int id);
 
     void setID( int id );
@@ -35,6 +40,7 @@ public:
     void setNombre( QString n );
     QString getNombre();
 
+    //Pendiente de analizar
     void setPersistente( bool valor );
     bool esPersistente();
 };

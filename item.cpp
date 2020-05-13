@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "item.h"
+#include "persistencia_item.h"
 
 #ifndef GLOBAL_SIGUIENTE
 #define GLOBAL_SIGUIENTE
@@ -8,16 +9,19 @@ int Item::siguiente_id = -1;
 #endif
 
 void Item::inicializa()
+{    
+    siguiente_id = Persistencia_Item::getUltimoItemActual();
+}
+
+int Item::getSiguienteID()
 {
-    //Pendiente de persistencia
-    siguiente_id = 1;
+    siguiente_id++;
+    return siguiente_id;
 }
 
 Item::Item()
 {
-    _id = siguiente_id;
-    siguiente_id++;
-
+    _id = -1;
     _nombre = "nombre""";
     _tipo = SIN_DEFINIR;
     _persistente = false;
