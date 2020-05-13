@@ -14,6 +14,12 @@ class Partida : public Item
 
 public:
     Partida();
+    Partida(
+        int id,
+        bool activa,
+        int inicio,
+        int fin,
+        int jugadores);
 
     int crear();
     void setFin();

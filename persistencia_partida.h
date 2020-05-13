@@ -16,12 +16,12 @@ class Persistencia_Partida
 public:
     Persistencia_Partida();
 
-    Partida crea();
-    void setFin(int partida);
+    static TReturn_Partida crea(int id, int inicio);
+    static void setFin(int partida);
     //void addJugador(int partida, int jugador); TODO Jugador
     //void removeJugador(int partida, int jugador);  TODO Jugador
-    void setActiva(int partida);
-    void setDesactiva(int partida);
+    static void setActiva(int partida);
+    static void setDesactiva(int partida);
 };
 
 #endif // PERSISTENCIA_PARTIDA_H

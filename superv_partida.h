@@ -1,11 +1,26 @@
 #ifndef SUPERV_PARTIDA_H
 #define SUPERV_PARTIDA_H
 
+#include <unordered_map>
+#include "partida.h"
 
-class superv_partida
+class SUPERV_Partida
 {
+    static unordered_map<int, Partida> partidas;
+
 public:
-    superv_partida();
+    SUPERV_Partida();
+
+    /** Rutinas sobre vector */
+    static void add_item(Partida p);
+    static void quita_item(int id);
+    static Partida get_item(int id);
+
+    static Partida nueva();
+
+    static void borra(int id);
+
+    static unordered_map<int, Partida> lista();
 };
 
 #endif // SUPERV_PARTIDA_H

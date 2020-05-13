@@ -1,8 +1,17 @@
 #include "partida.h"
 
-Partida::Partida()
+Partida::Partida(
+    int id,
+    bool esActiva,
+    int fechaInicio,
+    int fechaFin,
+    int numJugadores) : Item(id)
 {
-
+    setID( id );
+    if (esActiva == true) activa(); else desactiva();
+    inicio = fechaInicio;
+    fin = fechaFin;
+    jugadores = numJugadores;
 }
 
 int Partida::crear()
