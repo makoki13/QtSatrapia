@@ -23,8 +23,6 @@ SGBD::SGBD()
     if(db.open()) {
         cout << "Conexion a [SQLITE] preparada." << endl << endl;
     }
-
-    //Solo en modo debug: recrea_tablas();
 }
 
 TRetorno_Ejecuta SGBD::ejecuta(QSqlQuery query)

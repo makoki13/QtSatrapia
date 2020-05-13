@@ -23,8 +23,8 @@ int main()
 
     Item::inicializa();
 
-    QString correo = "pablo.gps@gmail.com";
-    QString clave = "SECOND";
+    QString correo = "pablo.tercero@gmail.com";
+    QString clave = "THIRD";
 
     /* A.- Crear usuario */
 
