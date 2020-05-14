@@ -1,10 +1,13 @@
 #include <iostream>
 
-//#include "usuario.h"
+#include "usuario.h"
 #include "item.h"
 
 #include "sgbd.h"
 #include "superv_usuario.h"
+
+#include "partida.h"
+#include "superv_partida.h"
 
 using namespace std;
 
@@ -23,11 +26,64 @@ int main()
 
     Item::inicializa();
 
+    //SUPERV_Partida::nueva();
+
+    SUPERV_Partida::abre(14);
+
+    unordered_map<int, Partida> partidas;
+
+    /*
+    Partida p1, p2;
+    p1.setID(p1.getSiguienteID());
+
+    p1.incrementaJugadores();
+    p1.incrementaJugadores();
+    p1.incrementaJugadores();
+    p1.incrementaJugadores();
+
+    SUPERV_Partida::add_item(p1);
+    */
+
+    partidas = SUPERV_Partida::lista();
+
+    for (unordered_map<int, Partida>::iterator it = partidas.begin(); it != partidas.end(); ++it) {
+        std::cout << "Key:[" << it->first << "] Value:[" << it->second.esActiva() << "]\n";
+    }
+
+
+    /*
+    for( auto& n : partidas ) {
+       std::cout << "Key:[" << n.first << "] Value:[" << n.second.esActiva() << "]\n";
+    }
+    */
+
+    SUPERV_Partida::cierra(14);
+
+    partidas = SUPERV_Partida::lista();
+
+    for (unordered_map<int, Partida>::iterator it = partidas.begin(); it != partidas.end(); ++it) {
+        std::cout << "Key:[" << it->first << "] Value:[" << it->second.esActiva() << "]\n";
+    }
+
+    /*
+    p2 = SUPERV_Partida::get_item(p1.getID());
+    p2.decrementaJugadores();
+    SUPERV_Partida::add_item(p2);
+
+    partidas = SUPERV_Partida::lista();
+
+    for( auto& n : partidas ) {
+       std::cout << "Key:[" << n.first << "] Value:[" << n.second.getJugadores() << "]\n";
+    }
+    */
+
+    /*
     QString correo = "pablo.tercero@gmail.com";
     QString clave = "THIRD";
+    */
 
     /* A.- Crear usuario */
-
+    /*
     if (SUPERV_Usuario::existe_usuario(correo,clave) == true) {
         cout << "correo " <<  correo.toStdString() << " ya existe o clave incorrecta " << endl;
     }
@@ -39,7 +95,7 @@ int main()
     }
 
     return 0;
-
+    */
 
     /* B.- Cargar usuario ya existente */
     /*

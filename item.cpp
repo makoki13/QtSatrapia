@@ -16,6 +16,7 @@ void Item::inicializa()
 int Item::getSiguienteID()
 {
     siguiente_id++;
+    Persistencia_Item::setUltimoItemActual(siguiente_id);
     return siguiente_id;
 }
 

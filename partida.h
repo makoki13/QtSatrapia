@@ -29,6 +29,9 @@ public:
 
     void activa();
     void desactiva();
+
+    bool esActiva();
+    int getJugadores();
 };
 
 #endif // PARTIDA_H

@@ -22,6 +22,7 @@ public:
     //void removeJugador(int partida, int jugador);  TODO Jugador
     static void setActiva(int partida);
     static void setDesactiva(int partida);
+    static void borra(int partida);
 };
 
 #endif // PERSISTENCIA_PARTIDA_H

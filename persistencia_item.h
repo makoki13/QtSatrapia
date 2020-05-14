@@ -9,6 +9,7 @@ public:
 
     //Para inicializar la variable estatica siguiente_id
     static int getUltimoItemActual();
+    static void setUltimoItemActual( int valor );
 };
 
 #endif // PERSISTENCIA_ITEM_H

@@ -9,9 +9,9 @@ using namespace std;
 void SGBD::recrea_tablas() {
     QSqlQuery query;
 
-    query.prepare("DROP TABLE usuario");
+    query.prepare("DROP TABLE partida");
     ejecuta(query);
-    query.prepare("CREATE TABLE usuario(id int primary key, nombre varchar, clave varchar, ultimo_acceso int, en_linea bool, estado int default 3)");
+    query.prepare("CREATE TABLE partida(id int primary key, activa bool, inicio int, fin int, jugadores int default 0)");
     ejecuta(query);
 }
 
@@ -23,6 +23,8 @@ SGBD::SGBD()
     if(db.open()) {
         cout << "Conexion a [SQLITE] preparada." << endl << endl;
     }
+
+    //SGBD::recrea_tablas();
 }
 
 TRetorno_Ejecuta SGBD::ejecuta(QSqlQuery query)
@@ -36,11 +38,14 @@ TRetorno_Ejecuta SGBD::ejecuta(QSqlQuery query)
     if(!query.exec())
     {
         resultado.resultado = -1;
-        resultado.mensaje = query.lastError().text();
+        resultado.mensaje = query.lastError().text() +
+                " " + query.executedQuery();
     }
     else
     {
+        resultado.resultado = 0;
         resultado.filas = query.numRowsAffected();
+        resultado.mensaje = "OK " + query.executedQuery();
     }
 
     return resultado;
@@ -52,7 +57,7 @@ TRetorno_Consulta SGBD::consulta(QSqlQuery query)
 
     if(!query.exec()) {
         resConsulta.resultado = -1;
-        resConsulta.mensaje = query.lastError().text();
+        resConsulta.mensaje = query.lastError().text() + " " + query.executedQuery();
         resConsulta.filas = 0;
     }
     else {

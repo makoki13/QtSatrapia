@@ -18,6 +18,8 @@ public:
 
     static Partida nueva();
 
+    static void abre(int id);
+    static void cierra(int id);
     static void borra(int id);
 
     static unordered_map<int, Partida> lista();

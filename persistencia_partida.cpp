@@ -14,15 +14,17 @@ TReturn_Partida Persistencia_Partida::crea(int id, int inicio)
 
     QString sql =
             "INSERT INTO partida (id, activa, inicio, fin, jugadores) "
-            "VALUES (:id, false, inicio, 0, 0)";
+            "VALUES (:id, false, :inicio, 0, 0)";
     QSqlQuery query;
 
     query.prepare(sql);
 
     query.bindValue(":id", id);
-    query.bindValue(":nombre", inicio );
+    query.bindValue(":inicio", inicio );
 
     TRetorno_Ejecuta resultado = SGBD::ejecuta(query);
+
+    QString s = query.executedQuery();
 
     t.resultado = resultado.resultado;
     t.mensaje = resultado.mensaje;
@@ -72,7 +74,7 @@ void Persistencia_Partida::setActiva(int partida)
 
 void Persistencia_Partida::setDesactiva(int partida)
 {
-    QString sql = "UPDATE partida SET Activa=false WHERE id=:id";
+    QString sql = "UPDATE partida SET activa=false WHERE id=:id";
     QSqlQuery query;
 
     query.prepare(sql);
@@ -81,3 +83,16 @@ void Persistencia_Partida::setDesactiva(int partida)
 
     TRetorno_Ejecuta resultado = SGBD::ejecuta(query);
 }
+
+void Persistencia_Partida::borra(int partida)
+{
+    QString sql = "DELETE FROM partida WHERE id=:id";
+    QSqlQuery query;
+
+    query.prepare(sql);
+
+    query.bindValue(":id", partida);
+
+    TRetorno_Ejecuta resultado = SGBD::ejecuta(query);
+}
+
