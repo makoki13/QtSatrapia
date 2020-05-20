@@ -39,6 +39,17 @@ bool SUPERV_Usuario::existe_usuario(QString correo, QString clave)
     if (resultado.mensaje == "ok" ) return true; else return false;
 }
 
+bool SUPERV_Usuario::existe_usuario_registrado(QString correo)
+{
+    TReturn_Usuario resultado;
+
+    resultado = Persistencia_Usuario::existe_usuario_registrado(correo);
+
+    cout << "-0- " << resultado.mensaje.toStdString() << "  " << endl;
+
+    if (resultado.mensaje == "ok" ) return true; else return false;
+}
+
 Usuario SUPERV_Usuario::crea_usuario(QString correo, QString clave)
 {
     TReturn_Usuario resultado;

@@ -41,6 +41,33 @@ TReturn_Usuario Persistencia_Usuario::existe_usuario(QString nombre, QString cla
     return t;
 }
 
+TReturn_Usuario Persistencia_Usuario::existe_usuario_registrado(QString nombre)
+{
+    TReturn_Usuario t;
+
+    QString sql = "SELECT ID,Clave,Ultimo_Acceso,En_Linea,Estado FROM usuario WHERE UPPER(Nombre)=:nombre";
+    QSqlQuery query;
+
+    query.prepare(sql);
+    query.bindValue(":nombre", nombre );
+
+    TRetorno_Consulta datos = SGBD::consulta(query);
+    if (datos.filas == 1) {
+        t.registro.setID(datos.data.first().value(0).toInt());
+        t.registro.setNombre(nombre);
+        t.registro.set_clave(datos.data.first().value(1).toString());
+        t.registro.set_online();
+        t.registro.set_estado(SIN_TUTORIAL);
+        t.mensaje = "ok";
+    }
+    else {
+        t.resultado = -1;
+        t.mensaje = datos.mensaje;
+    }
+
+    return t;
+}
+
 TReturn_Usuario Persistencia_Usuario::crea_usuario(int id, QString nombre, QString clave)
 {
     TReturn_Usuario t;

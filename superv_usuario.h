@@ -19,6 +19,7 @@ public:
 
     /** Rutinas sobre persistencia */
     static bool existe_usuario(QString correo, QString clave);
+    static bool existe_usuario_registrado(QString correo);
     static Usuario crea_usuario(QString correo,QString clave);
     static Usuario carga_usuario(QString correo);
     static bool borra_usuario(QString correo);
