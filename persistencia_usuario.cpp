@@ -14,11 +14,11 @@ TReturn_Usuario Persistencia_Usuario::existe_usuario(QString nombre, QString cla
 {
     TReturn_Usuario t;
 
-    QString sql = "SELECT ID,Ultimo_Acceso,En_Linea,Estado FROM usuario WHERE Nombre=:nombre AND Clave=:clave";
+    QString sql = "SELECT ID,Ultimo_Acceso,En_Linea,Estado FROM usuario WHERE UPPER(Nombre)=:nombre AND Clave=:clave";
     QSqlQuery query;
 
     query.prepare(sql);
-    query.bindValue(":nombre", nombre );
+    query.bindValue(":nombre", nombre.toUpper() );
     query.bindValue(":clave", clave );
 
     TRetorno_Consulta datos = SGBD::consulta(query);
