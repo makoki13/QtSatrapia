@@ -23,6 +23,8 @@ public:
     static void setActiva(int partida);
     static void setDesactiva(int partida);
     static void borra(int partida);
+
+    static TReturn_Partida carga(int id);
 };
 
 #endif // PERSISTENCIA_PARTIDA_H

@@ -1,6 +1,9 @@
 #include <QSqlQuery>
 #include <QVariant>
 #include <QString>
+#include <iostream>
+
+using namespace std;
 
 #include "persistencia_usuario.h"
 #include "sgbd.h"
@@ -14,7 +17,7 @@ TReturn_Usuario Persistencia_Usuario::existe_usuario(QString nombre, QString cla
 {
     TReturn_Usuario t;
 
-    QString sql = "SELECT ID,Ultimo_Acceso,En_Linea,Estado FROM usuario WHERE Nombre=:nombre AND Clave=:clave";
+    QString sql = "SELECT ID,Ultimo_Acceso,En_Linea,Estado FROM usuario WHERE UPPER(Nombre)=:nombre AND Clave=:clave";
     QSqlQuery query;
 
     query.prepare(sql);
@@ -32,7 +35,7 @@ TReturn_Usuario Persistencia_Usuario::existe_usuario(QString nombre, QString cla
     }
     else {
         t.resultado = -1;
-        t.mensaje = "error";
+        t.mensaje = datos.mensaje;
     }
 
     return t;

@@ -7,7 +7,9 @@
 #include "superv_usuario.h"
 
 #include "partida.h"
-#include "superv_partida.h"
+#include "persistencia_partida.h"
+#include "persistencia_usuario.h"
+#include "jugador.h"
 
 using namespace std;
 
@@ -26,11 +28,27 @@ int main()
 
     Item::inicializa();
 
+    cout << "siguiente_id " <<  Item::getSiguienteID() << endl;
+
     //SUPERV_Partida::nueva();
 
-    SUPERV_Partida::abre(14);
+    Partida p = Persistencia_Partida::carga(35).registro;
+    Usuario u = Persistencia_Usuario::carga_usuario("pablo.makoki@gmail.com").registro;
 
-    unordered_map<int, Partida> partidas;
+    Jugador j(p,u);
+    p.addJugador(j.getID());
+
+    cout << "j " <<  j.getNombre().toStdString() << endl;
+    cout << "p " <<  p.getJugadores() << endl;
+
+    Usuario u2 = Persistencia_Usuario::carga_usuario("pablo.gps@gmail.com").registro;
+
+    Jugador j2(p,u2);
+    p.addJugador(j2.getID());
+
+    cout << "j " <<  j.getNombre().toStdString() << endl;
+    cout << "p " <<  p.getJugadores() << endl;
+
 
     /*
     Partida p1, p2;
@@ -44,12 +62,13 @@ int main()
     SUPERV_Partida::add_item(p1);
     */
 
+    /*
     partidas = SUPERV_Partida::lista();
 
     for (unordered_map<int, Partida>::iterator it = partidas.begin(); it != partidas.end(); ++it) {
         std::cout << "Key:[" << it->first << "] Value:[" << it->second.esActiva() << "]\n";
     }
-
+    */
 
     /*
     for( auto& n : partidas ) {
@@ -57,6 +76,7 @@ int main()
     }
     */
 
+    /*
     SUPERV_Partida::cierra(14);
 
     partidas = SUPERV_Partida::lista();
@@ -64,6 +84,7 @@ int main()
     for (unordered_map<int, Partida>::iterator it = partidas.begin(); it != partidas.end(); ++it) {
         std::cout << "Key:[" << it->first << "] Value:[" << it->second.esActiva() << "]\n";
     }
+    */
 
     /*
     p2 = SUPERV_Partida::get_item(p1.getID());
