@@ -1,8 +1,10 @@
+#include <QSet>
+
 #include "item.h"
+#include "jugador.h"
 
 #ifndef PARTIDA_H
 #define PARTIDA_H
-
 
 class Partida : public Item
 {
@@ -11,6 +13,8 @@ class Partida : public Item
     int fin;
     int dias;
     int jugadores;
+
+    QSet<int> listaJugadores;
 
 public:
     Partida();
@@ -32,6 +36,8 @@ public:
 
     bool esActiva();
     int getJugadores();
+
+    void addJugador(int jugador);
 };
 
 #endif // PARTIDA_H

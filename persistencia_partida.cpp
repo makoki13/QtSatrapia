@@ -96,3 +96,41 @@ void Persistencia_Partida::borra(int partida)
     TRetorno_Ejecuta resultado = SGBD::ejecuta(query);
 }
 
+TReturn_Partida Persistencia_Partida::carga(int id)
+{
+    TReturn_Partida t;
+
+    QString sql = "SELECT Activa,Inicio,Fin,Jugadores FROM partida WHERE Id=:id";
+    QSqlQuery query;
+
+    query.prepare(sql);
+    query.bindValue(":id", id );
+
+    TRetorno_Consulta datos = SGBD::consulta(query);
+    if (datos.filas == 1) {
+        t.registro.setID(id);
+        t.registro.setNombre("");
+        int activa = datos.data.first().value(0).toInt();
+        if (activa == 1) {
+            t.registro.activa();
+        }
+        else {
+            t.registro.desactiva();
+        }
+
+        /*
+        t.registro.set_inicio(datos.data.first().value(1).toInt());
+        t.registro.set_fin(datos.data.first().value(2).toInt());
+        t.registro.set_jugadores(datos.data.first().value(3).toInt());
+        */
+        t.mensaje = "ok";
+    }
+    else {
+        t.resultado = -1;
+        t.mensaje = "error";
+    }
+
+    return t;
+
+}
+

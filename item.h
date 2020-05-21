@@ -25,6 +25,7 @@ public:
     static void inicializa();
     //Devuelve el siguiente_id al valor ultimo
     static int getSiguienteID();
+    static int getActualID();
 
     //Crea un item vacio con el siguiente ID libre.
     Item();

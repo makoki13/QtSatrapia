@@ -20,6 +20,11 @@ int Item::getSiguienteID()
     return siguiente_id;
 }
 
+int Item::getActualID()
+{
+    return siguiente_id;
+}
+
 Item::Item()
 {
     _id = -1;

@@ -1,4 +1,5 @@
 #include "partida.h"
+#include "jugador.h"
 
 Partida::Partida()
 {
@@ -12,7 +13,6 @@ Partida::Partida(
     int fechaFin,
     int numJugadores) : Item(id)
 {
-    setID( id );
     if (esActiva == true) activa(); else desactiva();
     inicio = fechaInicio;
     fin = fechaFin;
@@ -62,4 +62,10 @@ bool Partida::esActiva()
 int Partida::getJugadores()
 {
     return jugadores;
+}
+
+void Partida::addJugador(int jugador)
+{
+    listaJugadores.insert(jugador);
+    incrementaJugadores();
 }
