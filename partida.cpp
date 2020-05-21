@@ -69,3 +69,8 @@ void Partida::addJugador(int jugador)
     listaJugadores.insert(jugador);
     incrementaJugadores();
 }
+
+void Partida::quitaJugador(int jugador)
+{
+    listaJugadores.remove(jugador);
+}

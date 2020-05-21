@@ -38,6 +38,7 @@ public:
     int getJugadores();
 
     void addJugador(int jugador);
+    void quitaJugador(int jugador);
 };
 
 #endif // PARTIDA_H

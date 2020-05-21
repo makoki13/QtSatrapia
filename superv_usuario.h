@@ -24,6 +24,7 @@ public:
     static Usuario carga_usuario(QString correo);
     static bool borra_usuario(QString correo);
 
+    /* Rutinas de gestión */
 };
 
 #endif // SUPERV_USUARIO_H

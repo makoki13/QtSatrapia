@@ -11,6 +11,8 @@ class SUPERV_Partida
 public:
     SUPERV_Partida();
 
+    static void loadPartidas();
+
     /** Rutinas sobre vector */
     static void add_item(Partida p);
     static void quita_item(int id);
@@ -23,6 +25,9 @@ public:
     static void borra(int id);
 
     static unordered_map<int, Partida> lista();
+
+    static void addJugador(int partida, int jugador);
+    static void quitaJugador(int partida, int jugador);
 };
 
 #endif // SUPERV_PARTIDA_H
